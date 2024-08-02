@@ -4,8 +4,8 @@ export class Entity<IProps> {
   private _id: UniqueEntityID
   protected props: IProps
 
-  constructor(props: any, id?: string) {
-    this._id = new UniqueEntityID(id)
+  protected constructor(props: any, id?: UniqueEntityID) {
+    this._id = id ?? new UniqueEntityID()
     this.props = props
   }
 
