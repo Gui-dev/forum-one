@@ -1,5 +1,5 @@
-import { Optional } from "../../@types/optional"
-import { Entity } from "../../core/entities/entity"
+import { Optional } from "@/@types/optional"
+import { Entity } from "@/core/entities/entity"
 import { UniqueEntityID } from "./value-objects/unique-entity-id"
 
 interface IAnswerProps {
