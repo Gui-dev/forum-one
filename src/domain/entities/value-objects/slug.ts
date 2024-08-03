@@ -1,4 +1,3 @@
-
 export class Slug {
   public readonly value: string
 
@@ -8,14 +7,14 @@ export class Slug {
 
   /**
    * Receive a string and normalized it as a slug
-   * 
+   *
    * Example: "An example title" => "an-example-title"
-   * 
+   *
    * @param text {string}
    */
   public static createFromText(text: string) {
     const slugText = text
-      .normalize("NFKD")
+      .normalize('NFKD')
       .toLocaleLowerCase()
       .trim()
       .replace(/\s+/g, '-')
@@ -26,5 +25,4 @@ export class Slug {
 
     return new Slug(slugText)
   }
-
 }

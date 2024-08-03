@@ -1,9 +1,10 @@
 import dayjs from 'dayjs'
 
-import { Slug } from "./value-objects/slug"
-import { Entity } from "@/core/entities/entity"
-import { UniqueEntityID } from "./value-objects/unique-entity-id"
-import { Optional } from "@/@types/optional"
+import { Optional } from '@/@types/optional'
+import { Entity } from '@/core/entities/entity'
+
+import { Slug } from './value-objects/slug'
+import { UniqueEntityID } from './value-objects/unique-entity-id'
 
 interface IQuestionProps {
   author_id: UniqueEntityID
@@ -16,13 +17,18 @@ interface IQuestionProps {
 }
 
 export class Question extends Entity<IQuestionProps> {
-
-  public static create(props: Optional<IQuestionProps, 'created_at' | 'slug'>, id?: UniqueEntityID) {
-    const question = new Question({
-      ...props,
-      slug: props.slug ?? Slug.createFromText(props.title),
-      created_at: new Date()
-    }, id)
+  public static create(
+    props: Optional<IQuestionProps, 'created_at' | 'slug'>,
+    id?: UniqueEntityID,
+  ) {
+    const question = new Question(
+      {
+        ...props,
+        slug: props.slug ?? Slug.createFromText(props.title),
+        created_at: new Date(),
+      },
+      id,
+    )
 
     return question
   }
@@ -62,7 +68,7 @@ export class Question extends Entity<IQuestionProps> {
   }
 
   set content(content: string) {
-    this.content = content;
+    this.content = content
     this.touch()
   }
 
