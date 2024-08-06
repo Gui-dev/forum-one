@@ -6,7 +6,7 @@ import { Entity } from '@/core/entities/entity'
 import { Slug } from './value-objects/slug'
 import { UniqueEntityID } from './value-objects/unique-entity-id'
 
-interface IQuestionProps {
+export interface IQuestionProps {
   author_id: UniqueEntityID
   title: string
   slug: Slug
