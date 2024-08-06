@@ -1,4 +1,4 @@
-import { IAnswerRepository } from '@/domain/forum/application/repositories/answer-repository'
+import { IAnswersRepository } from '@/domain/forum/application/repositories/answers-repository'
 import { Answer } from '@/domain/forum/enterprise/entities/answer'
 import { UniqueEntityID } from '@/domain/forum/enterprise/entities/value-objects/unique-entity-id'
 
@@ -13,7 +13,7 @@ interface IAnswerQuestionUseCaseResponse {
 }
 
 export class AnswerQuestionUseCase {
-  constructor(private answerRepository: IAnswerRepository) {}
+  constructor(private answerRepository: IAnswersRepository) {}
 
   public async execute({
     instructor_id,

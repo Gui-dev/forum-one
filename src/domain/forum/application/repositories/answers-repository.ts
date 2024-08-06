@@ -1,5 +1,5 @@
 import { Answer } from '@/domain/forum/enterprise/entities/answer'
 
-export interface IAnswerRepository {
+export interface IAnswersRepository {
   create(answer: Answer): Promise<void>
 }
