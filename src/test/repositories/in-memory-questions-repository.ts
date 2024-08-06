@@ -4,6 +4,16 @@ import { Question } from '@/domain/forum/enterprise/entities/question'
 export class InMemoryQuestionsRepository implements IQuestionsRepository {
   public items: Question[] = []
 
+  public async findBySlug(slug: string): Promise<Question | null> {
+    const question = this.items.find((item) => item.slug.value === slug)
+
+    if (!question) {
+      return null
+    }
+
+    return question
+  }
+
   public async create(answer: Question): Promise<void> {
     this.items.push(answer)
   }
