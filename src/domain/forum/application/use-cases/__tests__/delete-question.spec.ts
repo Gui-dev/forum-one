@@ -29,7 +29,7 @@ describe('Delete Question Use Case', () => {
     expect(inMemoryQuestionsRepository.items).toHaveLength(0)
   })
 
-  it('should not be able to delete a question from another user ', async () => {
+  it('should not be able to delete a question from another user', async () => {
     const newQuestion = makeQuestion(
       {
         author_id: new UniqueEntityID('fake_author_id'),

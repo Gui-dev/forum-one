@@ -3,7 +3,7 @@ import { Entity } from '@/core/entities/entity'
 
 import { UniqueEntityID } from './value-objects/unique-entity-id'
 
-interface IAnswerProps {
+export interface IAnswerProps {
   author_id: UniqueEntityID
   question_id: UniqueEntityID
   content: string
