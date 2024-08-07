@@ -48,7 +48,7 @@ export class Answer extends Entity<IAnswerProps> {
   }
 
   set content(content: string) {
-    this.content = content
+    this.props.content = content
     this.touch()
   }
 
