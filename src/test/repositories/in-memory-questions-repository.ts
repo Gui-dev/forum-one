@@ -26,8 +26,13 @@ export class InMemoryQuestionsRepository implements IQuestionsRepository {
     return question
   }
 
-  public async create(answer: Question): Promise<void> {
-    this.items.push(answer)
+  public async create(quesion: Question): Promise<void> {
+    this.items.push(quesion)
+  }
+
+  public async save(question: Question): Promise<void> {
+    const itemIndex = this.items.findIndex((item) => item.id === question.id)
+    this.items[itemIndex] = question
   }
 
   public async delete(question: Question): Promise<void> {
