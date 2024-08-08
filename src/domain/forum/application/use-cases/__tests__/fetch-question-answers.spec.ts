@@ -38,11 +38,11 @@ describe('Fetch Question Answers Use Case', () => {
     expect(answers).toHaveLength(3)
   })
 
-  it.skip('should be able to fetch paginated recent questions', async () => {
+  it.skip('should be able to fetch paginated question answers', async () => {
     for (let i = 1; i <= 22; i++) {
       await inMemoryAnswersRepository.create(
         makeAnswer({
-          question_id: new UniqueEntityID(`fake_question_id_${i}`),
+          question_id: new UniqueEntityID(`fake_question_id`),
         }),
       )
     }
