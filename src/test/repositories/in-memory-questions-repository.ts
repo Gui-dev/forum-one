@@ -37,8 +37,8 @@ export class InMemoryQuestionsRepository implements IQuestionsRepository {
     return questions
   }
 
-  public async create(quesion: Question): Promise<void> {
-    this.items.push(quesion)
+  public async create(question: Question): Promise<void> {
+    this.items.push(question)
   }
 
   public async save(question: Question): Promise<void> {
