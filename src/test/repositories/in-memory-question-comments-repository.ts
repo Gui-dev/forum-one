@@ -1,4 +1,5 @@
 /* eslint-disable prettier/prettier */
+import { IPaginationParams } from '@/core/repositories/pagination-params'
 import { IQuestionCommentsRepository } from '@/domain/forum/application/repositories/question-comments-repository'
 import { QuestionComment } from '@/domain/forum/enterprise/entities/question-comment'
 
@@ -16,6 +17,14 @@ export class InMemoryQuestionCommentsRepository
     }
 
     return questionComment
+  }
+
+  public async findManyByQuestionId(question_id: string, { page }: IPaginationParams): Promise<QuestionComment[]> {
+    const questionComments = this.items
+      .filter((item) => item.question_id.toString() === question_id)
+      .slice((page - 1) * 20, page * 20)
+
+    return questionComments
   }
 
   public async create(questionComment: QuestionComment): Promise<void> {
