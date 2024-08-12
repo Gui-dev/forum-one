@@ -10,9 +10,16 @@ const doSomething = (shouldSuccess: boolean): Either<string, string> => {
 
 describe('Either', () => {
   it('should be able to success result', () => {
-    const successResult = doSomething(true)
+    const result = doSomething(true)
 
-    expect(successResult.isRight()).toBe(true)
-    expect(successResult.isLeft()).toBe(false)
+    expect(result.isRight()).toBe(true)
+    expect(result.isLeft()).toBe(false)
+  })
+
+  it('should be able to error result', () => {
+    const result = doSomething(false)
+
+    expect(result.isRight()).toBe(false)
+    expect(result.isLeft()).toBe(true)
   })
 })
