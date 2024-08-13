@@ -4,6 +4,7 @@ import { makeQuestion } from '@/test/factories/make-question'
 import { InMemoryAnswersRepository } from '@/test/repositories/in-memory-answers-repository'
 import { InMemoryQuestionsRepository } from '@/test/repositories/in-memory-questions-repository'
 
+import { NotAllowedError } from '../../errors/not-allowed-error'
 import { ChooseQuestionBestAnswerUseCase } from '../choose-question-best-answer'
 
 let inMemoryQuestionsRepository: InMemoryQuestionsRepository
@@ -51,11 +52,12 @@ describe('Choose Question Best Answer Use Case', () => {
     await inMemoryQuestionsRepository.create(question)
     await inMemoryAnswersRepository.create(answer)
 
-    await expect(() => {
-      return sut.execute({
-        author_id: 'faker_another_author_id',
-        answer_id: answer.id.toString(),
-      })
-    }).rejects.toBeInstanceOf(Error)
+    const result = await sut.execute({
+      author_id: 'faker_another_author_id',
+      answer_id: answer.id.toString(),
+    })
+
+    expect(result.isLeft()).toBe(true)
+    expect(result.value).toBeInstanceOf(NotAllowedError)
   })
 })

@@ -31,12 +31,13 @@ describe('Fetch Answer Comments Use Case', () => {
       }),
     )
 
-    const { answer_comments } = await sut.execute({
+    const result = await sut.execute({
       answer_id: 'fake_answer_id',
       page: 1,
     })
 
-    expect(answer_comments).toHaveLength(3)
+    expect(result.isRight()).toBe(true)
+    expect(result.value?.answer_comments).toHaveLength(3)
   })
 
   it('should be able to fetch paginated answer commnets', async () => {
@@ -48,11 +49,12 @@ describe('Fetch Answer Comments Use Case', () => {
       )
     }
 
-    const { answer_comments } = await sut.execute({
+    const result = await sut.execute({
       answer_id: 'fake_answer_id',
       page: 2,
     })
 
-    expect(answer_comments).toHaveLength(2)
+    expect(result.isRight()).toBe(true)
+    expect(result.value?.answer_comments).toHaveLength(2)
   })
 })
