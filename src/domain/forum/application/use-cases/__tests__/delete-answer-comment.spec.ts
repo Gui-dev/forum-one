@@ -2,6 +2,7 @@ import { UniqueEntityID } from '@/domain/forum/enterprise/entities/value-objects
 import { makeAnswerComment } from '@/test/factories/make-answer-comment'
 import { InMemoryAnswerCommentsRepository } from '@/test/repositories/in-memory-answer-comments-repository'
 
+import { NotAllowedError } from '../../errors/not-allowed-error'
 import { DeleteAnswerCommentnUseCase } from '../delete-answer-comment'
 
 let inMemoryAnswerCommentsRepository: InMemoryAnswerCommentsRepository
@@ -32,11 +33,12 @@ describe('Delete Answer Comment Use Case', () => {
 
     await inMemoryAnswerCommentsRepository.create(answerComment)
 
-    await expect(() =>
-      sut.execute({
-        author_id: 'fake_another_author_id',
-        answer_comment_id: answerComment.id.toString(),
-      }),
-    ).rejects.toBeInstanceOf(Error)
+    const result = await sut.execute({
+      author_id: 'fake_another_author_id',
+      answer_comment_id: answerComment.id.toString(),
+    })
+
+    expect(result.isLeft()).toBe(true)
+    expect(result.value).toBeInstanceOf(NotAllowedError)
   })
 })
