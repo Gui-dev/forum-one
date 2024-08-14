@@ -1,6 +1,6 @@
 import { UniqueEntityID } from '../../domain/forum/enterprise/entities/value-objects/unique-entity-id'
 
-export class Entity<IProps> {
+export abstract class Entity<IProps> {
   private _id: UniqueEntityID
   protected props: IProps
 
