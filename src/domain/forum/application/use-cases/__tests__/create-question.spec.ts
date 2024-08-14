@@ -1,3 +1,4 @@
+import { UniqueEntityID } from '@/domain/forum/enterprise/entities/value-objects/unique-entity-id'
 import { InMemoryQuestionsRepository } from '@/test/repositories/in-memory-questions-repository'
 
 import { CreateQuestionUseCase } from '../create-question'
@@ -15,9 +16,15 @@ describe('Create Question Use Case', () => {
       author_id: 'fake_author_id',
       title: 'Fake title',
       content: 'Fake content',
+      attachments_ids: ['1', '2'],
     })
 
     expect(result.isRight()).toBe(true)
     expect(inMemoryQuestionsRepository.items[0]).toEqual(result.value?.question)
+    expect(inMemoryQuestionsRepository.items[0].attachments).toHaveLength(2)
+    expect(inMemoryQuestionsRepository.items[0].attachments).toEqual([
+      expect.objectContaining({ attachment_id: new UniqueEntityID('1') }),
+      expect.objectContaining({ attachment_id: new UniqueEntityID('2') }),
+    ])
   })
 })
