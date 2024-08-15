@@ -6,50 +6,52 @@ class NumberWatchedList extends WatchedList<number> {
   }
 }
 
-// let sut: NumberWatchedList
+let sut: NumberWatchedList
 describe('Watched List', () => {
-  // beforeEach(() => {
-  //   sut = new NumberWatchedList()
-  // })
+  beforeEach(() => {
+    sut = new NumberWatchedList([1, 2, 3])
+  })
   it('should be able to create a watched list with initial items', () => {
-    const list = new NumberWatchedList([1, 2, 3])
-
-    expect(list.currentItems).toHaveLength(3)
+    expect(sut.currentItems).toHaveLength(3)
   })
 
   it('should be able to add new items to the list', () => {
-    const list = new NumberWatchedList([1, 2, 3])
-    list.add(4)
+    sut.add(4)
 
-    expect(list.currentItems).toHaveLength(4)
-    expect(list.getNewItems()).toEqual([4])
+    expect(sut.currentItems).toHaveLength(4)
+    expect(sut.getNewItems()).toEqual([4])
   })
 
   it('should be able to remove items from the list', () => {
-    const list = new NumberWatchedList([1, 2, 3])
-    list.remove(2)
+    sut.remove(2)
 
-    expect(list.currentItems).toHaveLength(2)
-    expect(list.getRemovedItems()).toEqual([2])
+    expect(sut.currentItems).toHaveLength(2)
+    expect(sut.getRemovedItems()).toEqual([2])
   })
 
   it('should be able to add an item  even if it was removed before', () => {
-    const list = new NumberWatchedList([1, 2, 3])
-    list.remove(2)
-    list.add(2)
+    sut.remove(2)
+    sut.add(2)
 
-    expect(list.currentItems).toHaveLength(3)
-    expect(list.getRemovedItems()).toEqual([])
-    expect(list.getNewItems()).toEqual([])
+    expect(sut.currentItems).toHaveLength(3)
+    expect(sut.getRemovedItems()).toEqual([])
+    expect(sut.getNewItems()).toEqual([])
   })
 
   it('should be able to remove an item even if it was added before', () => {
-    const list = new NumberWatchedList([1, 2, 3])
-    list.add(4)
-    list.remove(4)
+    sut.add(4)
+    sut.remove(4)
 
-    expect(list.currentItems).toHaveLength(3)
-    expect(list.getRemovedItems()).toEqual([])
-    expect(list.getNewItems()).toEqual([])
+    expect(sut.currentItems).toHaveLength(3)
+    expect(sut.getRemovedItems()).toEqual([])
+    expect(sut.getNewItems()).toEqual([])
+  })
+
+  it('should be able to update watched list items', () => {
+    sut.update([1, 3, 5])
+
+    expect(sut.currentItems).toHaveLength(3)
+    expect(sut.getRemovedItems()).toEqual([2])
+    expect(sut.getNewItems()).toEqual([5])
   })
 })
