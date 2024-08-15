@@ -32,4 +32,14 @@ describe('Watched List', () => {
     expect(list.currentItems).toHaveLength(2)
     expect(list.getRemovedItems()).toEqual([2])
   })
+
+  it('should be able to add an item  even if it was removed before', () => {
+    const list = new NumberWatchedList([1, 2, 3])
+    list.remove(2)
+    list.add(2)
+
+    expect(list.currentItems).toHaveLength(3)
+    expect(list.getRemovedItems()).toEqual([])
+    expect(list.getNewItems()).toEqual([])
+  })
 })
