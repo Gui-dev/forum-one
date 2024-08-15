@@ -16,4 +16,12 @@ describe('Watched List', () => {
 
     expect(list.currentItems).toHaveLength(3)
   })
+
+  it('should be able to add new items to the list', () => {
+    const list = new NumberWatchedList([1, 2, 3])
+    list.add(4)
+
+    expect(list.currentItems).toHaveLength(4)
+    expect(list.getNewItems()).toEqual([4])
+  })
 })
