@@ -26,6 +26,10 @@ export class Notification extends Entity<INotificationProps> {
     return notification
   }
 
+  public read() {
+    this.props.read_at = new Date()
+  }
+
   get recipient_id() {
     return this.props.recipient_id
   }
