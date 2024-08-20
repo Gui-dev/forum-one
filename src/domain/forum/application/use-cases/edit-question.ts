@@ -1,11 +1,11 @@
 import { Either, left, right } from '@/core/either'
+import { NotAllowedError } from '@/core/errors/errors/not-allowed-error'
+import { ResourceNotFoundError } from '@/core/errors/errors/resource-not-found-error'
 
 import { Question } from '../../enterprise/entities/question'
 import { QuestionAttachment } from '../../enterprise/entities/question-attachment'
 import { QuestionAttachmentList } from '../../enterprise/entities/question-attachment-list'
 import { UniqueEntityID } from '../../enterprise/entities/value-objects/unique-entity-id'
-import { NotAllowedError } from '../errors/not-allowed-error'
-import { ResourceNotFoundError } from '../errors/resource-not-found-error'
 import { IQuestionAttachmentsRepository } from '../repositories/question-attachments-repository'
 import { IQuestionsRepository } from '../repositories/questions-repository'
 

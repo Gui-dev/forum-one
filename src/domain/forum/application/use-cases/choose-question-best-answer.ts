@@ -1,9 +1,9 @@
 import { Either, left, right } from '@/core/either'
+import { NotAllowedError } from '@/core/errors/errors/not-allowed-error'
+import { ResourceNotFoundError } from '@/core/errors/errors/resource-not-found-error'
 import { IAnswersRepository } from '@/domain/forum/application/repositories/answers-repository'
 
 import { Question } from '../../enterprise/entities/question'
-import { NotAllowedError } from '../errors/not-allowed-error'
-import { ResourceNotFoundError } from '../errors/resource-not-found-error'
 import { IQuestionsRepository } from '../repositories/questions-repository'
 
 interface IChooseQuestionBestAnswerUseCaseRequest {
