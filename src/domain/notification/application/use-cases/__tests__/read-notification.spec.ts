@@ -1,3 +1,5 @@
+import { NotAllowedError } from '@/core/errors/errors/not-allowed-error'
+import { UniqueEntityID } from '@/domain/forum/enterprise/entities/value-objects/unique-entity-id'
 import { makeNotification } from '@/test/factories/make-notification'
 import { InMemoryNotificationsReposiotry } from '@/test/repositories/in-memory-notifications-repository'
 
@@ -24,5 +26,20 @@ describe('Read Notification Use Case', () => {
     expect(inMemoryNotificationsReposiotry.items[0].read_at).toEqual(
       expect.any(Date),
     )
+  })
+
+  it('should not be able to read a notification from another user', async () => {
+    const notification = makeNotification({
+      recipient_id: new UniqueEntityID('fake_recipient_id'),
+    })
+    await inMemoryNotificationsReposiotry.create(notification)
+
+    const result = await sut.execute({
+      recipient_id: 'fake_another_recipient_id',
+      notification_id: notification.id.toString(),
+    })
+
+    expect(result.isLeft()).toBe(true)
+    expect(result.value).toBeInstanceOf(NotAllowedError)
   })
 })
