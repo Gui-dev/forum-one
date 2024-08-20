@@ -7,8 +7,8 @@ import { InMemoryQuestionsRepository } from '@/test/repositories/in-memory-quest
 import { NotAllowedError } from '../../errors/not-allowed-error'
 import { EditQuestionUseCase } from '../edit-question'
 
-let inMemoryQuestionsRepository: InMemoryQuestionsRepository
 let inMemoryQuestionAttachmentsRepository: InMemoryQuestionAttachmentsRepository
+let inMemoryQuestionsRepository: InMemoryQuestionsRepository
 let sut: EditQuestionUseCase
 
 describe('Edit Question Use Case', () => {

@@ -7,8 +7,8 @@ import { InMemoryQuestionsRepository } from '@/test/repositories/in-memory-quest
 import { NotAllowedError } from '../../errors/not-allowed-error'
 import { DeleteQuestionUseCase } from '../delete-question'
 
-let inMemoryQuestionsRepository: InMemoryQuestionsRepository
 let inMemoryQuestionAttachmentsRepository: InMemoryQuestionAttachmentsRepository
+let inMemoryQuestionsRepository: InMemoryQuestionsRepository
 let sut: DeleteQuestionUseCase
 
 describe('Delete Question Use Case', () => {
