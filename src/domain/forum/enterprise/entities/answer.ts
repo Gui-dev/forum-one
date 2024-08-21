@@ -1,8 +1,8 @@
 import { Optional } from '@/@types/optional'
 import { Entity } from '@/core/entities/entity'
+import { UniqueEntityID } from '@/core/entities/unique-entity-id'
 
 import { AnswerAttachmentList } from './answer-attachment-list'
-import { UniqueEntityID } from './value-objects/unique-entity-id'
 
 export interface IAnswerProps {
   author_id: UniqueEntityID

@@ -1,7 +1,7 @@
 import { Optional } from '@/@types/optional'
+import { UniqueEntityID } from '@/core/entities/unique-entity-id'
 
 import { Comment, ICommentProps } from './comment'
-import { UniqueEntityID } from './value-objects/unique-entity-id'
 
 export interface IQuestionCommentProps extends ICommentProps {
   question_id: UniqueEntityID

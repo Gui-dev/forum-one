@@ -1,7 +1,7 @@
 import { faker } from '@faker-js/faker'
 
+import { UniqueEntityID } from '@/core/entities/unique-entity-id'
 import { Answer, IAnswerProps } from '@/domain/forum/enterprise/entities/answer'
-import { UniqueEntityID } from '@/domain/forum/enterprise/entities/value-objects/unique-entity-id'
 
 export const makeAnswer = (
   override: Partial<IAnswerProps> = {},

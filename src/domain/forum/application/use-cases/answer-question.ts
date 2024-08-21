@@ -1,7 +1,7 @@
 import { Either, right } from '@/core/either'
+import { UniqueEntityID } from '@/core/entities/unique-entity-id'
 import { IAnswersRepository } from '@/domain/forum/application/repositories/answers-repository'
 import { Answer } from '@/domain/forum/enterprise/entities/answer'
-import { UniqueEntityID } from '@/domain/forum/enterprise/entities/value-objects/unique-entity-id'
 
 import { AnswerAttachment } from '../../enterprise/entities/answer-attachment'
 import { AnswerAttachmentList } from '../../enterprise/entities/answer-attachment-list'

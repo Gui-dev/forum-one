@@ -1,11 +1,11 @@
 import { Either, left, right } from '@/core/either'
+import { UniqueEntityID } from '@/core/entities/unique-entity-id'
 import { NotAllowedError } from '@/core/errors/errors/not-allowed-error'
 import { ResourceNotFoundError } from '@/core/errors/errors/resource-not-found-error'
 
 import { Answer } from '../../enterprise/entities/answer'
 import { AnswerAttachment } from '../../enterprise/entities/answer-attachment'
 import { AnswerAttachmentList } from '../../enterprise/entities/answer-attachment-list'
-import { UniqueEntityID } from '../../enterprise/entities/value-objects/unique-entity-id'
 import { IAnswerAttachmentsRepository } from '../repositories/answer-attachments-repository'
 import { IAnswersRepository } from '../repositories/answers-repository'
 

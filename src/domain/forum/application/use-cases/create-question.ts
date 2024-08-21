@@ -1,9 +1,9 @@
 import { Either, right } from '@/core/either'
+import { UniqueEntityID } from '@/core/entities/unique-entity-id'
 
 import { Question } from '../../enterprise/entities/question'
 import { QuestionAttachment } from '../../enterprise/entities/question-attachment'
 import { QuestionAttachmentList } from '../../enterprise/entities/question-attachment-list'
-import { UniqueEntityID } from '../../enterprise/entities/value-objects/unique-entity-id'
 import { IQuestionsRepository } from '../repositories/questions-repository'
 
 interface ICreateQuestionUseCaseRequest {

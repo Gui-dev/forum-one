@@ -1,4 +1,4 @@
-import { UniqueEntityID } from '@/domain/forum/enterprise/entities/value-objects/unique-entity-id'
+import { UniqueEntityID } from '@/core/entities/unique-entity-id'
 import { InMemoryQuestionAttachmentsRepository } from '@/test/repositories/in-memory-question-attachements-repository'
 import { InMemoryQuestionsRepository } from '@/test/repositories/in-memory-questions-repository'
 

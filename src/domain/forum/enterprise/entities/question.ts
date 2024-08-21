@@ -2,10 +2,10 @@ import dayjs from 'dayjs'
 
 import { Optional } from '@/@types/optional'
 import { AggregateRoot } from '@/core/entities/aggregate-root'
+import { UniqueEntityID } from '@/core/entities/unique-entity-id'
 
 import { QuestionAttachmentList } from './question-attachment-list'
 import { Slug } from './value-objects/slug'
-import { UniqueEntityID } from './value-objects/unique-entity-id'
 
 export interface IQuestionProps {
   author_id: UniqueEntityID

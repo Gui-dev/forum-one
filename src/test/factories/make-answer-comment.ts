@@ -1,10 +1,10 @@
 import { faker } from '@faker-js/faker'
 
+import { UniqueEntityID } from '@/core/entities/unique-entity-id'
 import {
   AnswerComment,
   IAnswerCommentProps,
 } from '@/domain/forum/enterprise/entities/answer-comment'
-import { UniqueEntityID } from '@/domain/forum/enterprise/entities/value-objects/unique-entity-id'
 
 export const makeAnswerComment = (
   override: Partial<IAnswerCommentProps> = {},

@@ -1,6 +1,6 @@
 import { Optional } from '@/@types/optional'
 import { Entity } from '@/core/entities/entity'
-import { UniqueEntityID } from '@/domain/forum/enterprise/entities/value-objects/unique-entity-id'
+import { UniqueEntityID } from '@/core/entities/unique-entity-id'
 
 export interface INotificationProps {
   recipient_id: UniqueEntityID
